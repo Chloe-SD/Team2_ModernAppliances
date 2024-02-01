@@ -9,14 +9,12 @@ namespace Team2_ModernAppliances
     internal abstract class Appliance
     {
         // Shared attributes for all appliance types
-        // abstract forces any child class to inherit these attributes
-        // TODO: QUESTION: Cant use private for abstract, is protected acceptable?
-        protected abstract string ItemNumber { get; set; }
-        protected abstract string Brand { get; set; }
-        protected abstract int Quantity { get; set; }
-        protected abstract string Wattage { get; set; }
-        protected abstract string Colour { get; set; }
-        protected abstract double Price { get; set; }
+        protected string ItemNumber { get; set; }
+        protected string Brand { get; set; }
+        protected int Quantity { get; set; }
+        protected string Wattage { get; set; }
+        protected string Colour { get; set; }
+        protected double Price { get; set; }
 
         public Appliance(string itemNumber, string brand, int quantity, string wattage, string colour, double price)
         {
@@ -58,7 +56,7 @@ namespace Team2_ModernAppliances
                 $"Quantity: {this.Quantity}\n" +
                 $"Wattage: {this.Wattage}\n" +
                 $"Colour: {this.Colour}\n" +
-                $"Price: {this.Price}\n";
+                $"Price: {this.Price}";
         }
      
     }
