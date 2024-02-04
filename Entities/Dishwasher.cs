@@ -25,6 +25,35 @@ namespace Team2_ModernAppliances.Entities
             }
         }
 
+                // Public property to get the human-readable display of sound rating
+        public string SoundRatingDisplay
+        {
+            get
+            {
+                // Return the corresponding display text based on the sound rating code
+                if (_soundRating == "QT")
+                {
+                    return "Quietest";
+                }
+                else if (_soundRating == "QR")
+                {
+                    return "Quieter";
+                }
+                else if (_soundRating == "QU")
+                {
+                    return "Quiet";
+                }
+                else if (_soundRating == "M")
+                {
+                    return "Moderate";
+                }
+                else
+                {
+                    return "Unknown"; 
+                }
+            }
+        }
+
         // Public properties to provide constant values for different sound ratings
         public string SoundRatingModerate => "M";
         public string SoundRatingQT => "QT";
