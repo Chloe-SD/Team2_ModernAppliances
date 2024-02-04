@@ -10,24 +10,26 @@ namespace Team2_ModernAppliances.Entities
     {
         private string _soundRating; // Private field to store the sound rating of the dishwasher
 
-        public string SoundRating // Public property to get and set the sound rating of the dishwasher
+        // Public property to get and set the sound rating of the dishwasher
+        public string SoundRating
         {
             get { return _soundRating; }
             set
             {
                 // Validate the sound rating value
-                if (value.ToLower() == "qt" || value.ToLower() == "qr" || value.ToLower() == "qu" || value.ToLower() == "m")
+                string uppercaseValue = value.ToUpper(); // Convert the input value to uppercase
+                if (uppercaseValue == "QT" || uppercaseValue == "QR" || uppercaseValue == "QU" || uppercaseValue == "M")
                 {
-                    _soundRating = value;
+                    _soundRating = uppercaseValue; // Assign the uppercase value to the private field
                 }
             }
         }
 
         // Public properties to provide constant values for different sound ratings
         public string SoundRatingModerate => "M";
-        public string SoundRatingQT => "Qt";
-        public string SoundRatingQR => "Qr";
-        public string SoundRatingQU => "Qu";
+        public string SoundRatingQT => "QT";
+        public string SoundRatingQR => "QR";
+        public string SoundRatingQU => "QU";
 
         // Public property to get and set the feature of the dishwasher
         public string Feature { get; set; }
