@@ -25,7 +25,7 @@ namespace Team2_ModernAppliances.Entities
         public string ToString()
         {
             base.ToString();
-            return $"Grade: {this.grade} \n"+
+            return $"Grade: {this.Grade} \n"+
                 $"Battery Voltage: {this.BatteryVoltage} V";
         }
     }
