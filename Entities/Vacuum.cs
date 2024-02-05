@@ -8,24 +8,25 @@ namespace Team2_ModernAppliances.Entities
 {
     internal class Vacuum:Appliance
     {
-        private int batteryVoltage { get; set; }
-        private string grade { get; set; }
+        private int BatteryVoltage { get; set; }
+        private string Grade { get; set; }
 
         public Vacuum(string itemNumber, string brand, int quantity, string wattage, string colour, double price, string grade, int batteryVoltage) : base(itemNumber, brand, quantity, wattage, colour, price)
         {
-            batteryVoltage = this.batteryVoltage;
-            grade = this.grade;
+            batteryVoltage = this.BatteryVoltage;
+            grade = this.Grade;
         }
 
         public override string FormatForFile()
         {
-            return $"{this.ItemNumber}:{this.Brand}:{this.Quantity}:{this.Wattage}:{this.Colour}:{this.Price}:{this.grade}:{this.batteryVoltage}";
+            return $"{this.ItemNumber}:{this.Brand}:{this.Quantity}:{this.Wattage}:{this.Colour}:{this.Price}:{this.Grade}:{this.BatteryVoltage}";
         }
 
         public string ToString()
         {
             base.ToString();
-            return $"Grade: {this.grade} \nBattery Voltage {this.batteryVoltage}";
+            return $"Grade: {this.grade} \n"+
+                $"Battery Voltage: {this.BatteryVoltage} V";
         }
     }
 }
