@@ -74,7 +74,7 @@ namespace Team2_ModernAppliances.Entities
         // Override ToString method to provide a string representation of the Dishwasher object
         public override string ToString()
         {
-        base.ToString();
+            base.ToString();
         
             return
                    $"Sound Rating: {SoundRatingDisplay}\n" +
