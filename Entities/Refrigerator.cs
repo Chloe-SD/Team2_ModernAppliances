@@ -21,7 +21,7 @@ namespace Team2_ModernAppliances.Entities
 
         public override string FormatForFile()
         {
-            return $"{this.ItemNumber};{this.Brand};{this.Quantity};{this.Wattage};{this.Colour};{this.Price};{this.Doors};{this.Height};{this.Width}";
+            return $"{this.ItemNumber};{this.Brand};{this.Quantity};{this.Wattage};{this.Colour};{this.Price};{this.Doors};{this.Height};{this.Width};";
         }
 
         public override string ToString()
