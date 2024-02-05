@@ -8,5 +8,7 @@ namespace Team2_ModernAppliances.Entities
 {
     internal class Dishwasher:Appliance
     {
+        
+
     }
 }
