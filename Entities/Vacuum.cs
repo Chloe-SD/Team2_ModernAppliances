@@ -6,19 +6,10 @@ using System.Threading.Tasks;
 
 namespace Team2_ModernAppliances.Entities
 {
-    internal class Vacuum:Appliance
+    internal class Vacuum : Appliance
     {
-        protected int _batteryVoltage;
-        protected string _grade;
-
-        public int batteryVoltage
-        {
-            get { return _batteryVoltage;  }
-        }
-        public string grade
-        {
-            get { return _grade; }
-        }
+        private int batteryVoltage { get; set; }
+        private string grade { get; set; }
 
         public Vacuum (string itemNumber, string brand, int quantity, string wattage, string colour, double price, string grade, int batteryVoltage) : base(itemNumber, brand, quantity, wattage, colour, price)
         {
