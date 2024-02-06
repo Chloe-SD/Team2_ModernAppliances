@@ -59,7 +59,10 @@ namespace Team2_ModernAppliances
             //iterate through list
             //if OBJ type is equal to input type, sent that OBj ToString()
         }
-        //public override void RandomSearch()
+        public override void RandomSearch()
+        {
+            // random search
+        }
         //{
 
         //}
