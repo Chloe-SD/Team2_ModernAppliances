@@ -19,7 +19,7 @@ namespace Team2_ModernAppliances.Entities
 
         public override string FormatForFile()
         {
-            return $"{this.ItemNumber};{this.Brand};{this.Quantity};{this.Wattage};{this.Colour};{this.Price};{this.Grade};{this.BatteryVoltage}";
+            return $"{this.ItemNumber};{this.Brand};{this.Quantity};{this.Wattage};{this.Colour};{this.Price};{this.Grade};{this.BatteryVoltage};";
         }
 
         public override string ToString()
