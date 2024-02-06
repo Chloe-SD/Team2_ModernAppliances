@@ -22,6 +22,7 @@ namespace Team2_ModernAppliances
         }
         public override int DisplayMainMenu()
         {
+            // String for the display of the menu
             string menu = "Welcome to Modern Appliances!\n" +
                               "How may we assist you?\n" +
                               "1 - Check out appliance\n" +
@@ -30,7 +31,8 @@ namespace Team2_ModernAppliances
                               "4 - Produce random appliance list\n" +
                               "5 - Save & exit:";
 
-            int userSelection = GetUserSelection(menu, 1, 5);
+            //storing the integer and returning the user selction
+            int userSelection = GetUserSelection(menu, 1, 5); // calling on this method for validity of user choice 
             return userSelection;
         }
         public override void Checkout()
