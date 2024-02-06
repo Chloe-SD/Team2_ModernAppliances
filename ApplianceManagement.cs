@@ -77,7 +77,7 @@ namespace Team2_ModernAppliances
         }
         public void WriteToFile()
         {
-           
+
 
             //TODO: QUESTION: Change to Absolute Path?
             string fileDestination = @"C:\Users\Jedi4\source\repos\Team2_ModernAppliances\appliancesTEST.txt";

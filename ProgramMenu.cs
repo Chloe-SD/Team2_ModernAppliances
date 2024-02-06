@@ -22,7 +22,13 @@ namespace Team2_ModernAppliances
         }
         public override void DisplayMainMenu()
         {
-            //TODO: This will be the main menu
+            Console.WriteLine("Welcome to Modern Appliances!\n" +
+                              "How may we assist you?\n" +
+                              "1 - Check out appliance\n" +
+                              "2 - Find appliances by brand\n" +
+                              "3 - Display appliances by type\n" +
+                              "4 - Produce random appliance list\n" +
+                              "5 - Save & exit:");
         }
         public override void Checkout()
         {
