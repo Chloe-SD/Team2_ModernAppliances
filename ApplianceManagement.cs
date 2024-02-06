@@ -112,7 +112,7 @@ namespace Team2_ModernAppliances
             
         }
         public abstract void DisplayAllItems();
-        public abstract void DisplayMainMenu();
+        public abstract int DisplayMainMenu();
         public abstract void Checkout();
         public abstract void SearchByType();
 
