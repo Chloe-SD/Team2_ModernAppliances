@@ -30,13 +30,15 @@ namespace Team2_ModernAppliances
                 //public Microwave(all attributes):base(base attributes)
                     // this.microwaveAttributes = microwave specific attributes
         }
-        public void Checkout()
+        public bool Checkout()
         {
             Console.WriteLine("Checkout() not written yet");
             //call this when "purchasing" an appliance to decrease QUANTITY by 1
             //check if stock is avaialble
             //if available - this.Quantity--;
             //if unavailable - Error
+            return true;
+            // temp just returns true so we can run other parts of the program
         }
         public void DetermineApplianceType()
         {
@@ -56,7 +58,7 @@ namespace Team2_ModernAppliances
                 $"Quantity: {this.Quantity}\n" +
                 $"Wattage: {this.Wattage}\n" +
                 $"Colour: {this.Colour}\n" +
-                $"Price: {this.Price}";
+                $"Price: {this.Price}\n";
         }
      
     }

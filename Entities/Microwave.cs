@@ -45,9 +45,9 @@ namespace Team2_ModernAppliances.Entities
         public override string ToString()
         {
             // calls base to print all shared attribute values
-            base.ToString();
             // then returns microwave specific attributes
-            return $"Capacity: {this.Capacity}\n" +
+            return $"{base.ToString()}" +
+                $"Capacity: {this.Capacity}\n" +
                 $"RoomType: {this.RoomType}";
         }
     }

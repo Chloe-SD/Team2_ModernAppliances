@@ -13,8 +13,8 @@ namespace Team2_ModernAppliances.Entities
 
         public Vacuum(string itemNumber, string brand, int quantity, string wattage, string colour, double price, string grade, int batteryVoltage) : base(itemNumber, brand, quantity, wattage, colour, price)
         {
-            batteryVoltage = this.BatteryVoltage;
-            grade = this.Grade;
+            this.BatteryVoltage = batteryVoltage;
+            this.Grade = grade;
         }
 
         public override string FormatForFile()
@@ -22,10 +22,10 @@ namespace Team2_ModernAppliances.Entities
             return $"{this.ItemNumber}:{this.Brand}:{this.Quantity}:{this.Wattage}:{this.Colour}:{this.Price}:{this.Grade}:{this.BatteryVoltage}";
         }
 
-        public string ToString()
+        public override string ToString()
         {
-            base.ToString();
-            return $"Grade: {this.grade} \n"+
+            return $"{base.ToString()}" +
+                $"Grade: {this.Grade} \n"+
                 $"Battery Voltage: {this.BatteryVoltage} V";
         }
     }
