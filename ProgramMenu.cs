@@ -20,15 +20,18 @@ namespace Team2_ModernAppliances
 
             }
         }
-        public override void DisplayMainMenu()
+        public override int DisplayMainMenu()
         {
-            Console.WriteLine("Welcome to Modern Appliances!\n" +
+            string menu = "Welcome to Modern Appliances!\n" +
                               "How may we assist you?\n" +
                               "1 - Check out appliance\n" +
                               "2 - Find appliances by brand\n" +
                               "3 - Display appliances by type\n" +
                               "4 - Produce random appliance list\n" +
-                              "5 - Save & exit:");
+                              "5 - Save & exit:";
+
+            int userSelection = GetUserSelection(menu, 1, 5);
+            return userSelection;
         }
         public override void Checkout()
         {

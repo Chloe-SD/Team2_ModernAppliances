@@ -25,9 +25,6 @@ namespace Team2_ModernAppliances
             // used following for testing, created list of all appliances and sent all of them ToString
             ApplianceManagement x = new ProgramMenu();
             x.DisplayMainMenu();
-            x.DisplayAllItems();
-            x.WriteToFile();
-            x.DisplayMainMenu();
         }
     }
 }
