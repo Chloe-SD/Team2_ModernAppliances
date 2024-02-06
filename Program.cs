@@ -27,6 +27,7 @@ namespace Team2_ModernAppliances
             // see if user input can be tabbed, underlined and bolded
             
             ApplianceManagement system = new ProgramMenu();
+            system.DisplayAllItems();
             while (true)
             {
                 int mainMenuSelection = system.DisplayMainMenu(); //Displays main menu, gets user selection

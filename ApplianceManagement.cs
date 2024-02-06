@@ -26,7 +26,7 @@ namespace Team2_ModernAppliances
             string filePath = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliances.txt";
             StreamReader reader = new StreamReader(filePath);
             
-            string line = reader.ReadLine(); // read first line of file
+            string? line = reader.ReadLine(); // read first line of file
             while (line != null) // loop as long as line is not null value
             {
                 string[] parts = line.Split(';'); // create an array of attributes (Split at semicolon)
@@ -98,7 +98,7 @@ namespace Team2_ModernAppliances
             while (true) // loop goes until a valid selection is made
             {
                 Console.WriteLine(menu); // prints the menu EACH TIME the loop runs
-                string input = Console.ReadLine(); // reads user input
+                string? input = Console.ReadLine(); // reads user input
                 if (int.TryParse(input, out int selection)) // tries to parse an int, if sucessful saves as 'selection'
                 {
                     if (selection >= min && selection <= max) // determine if 'selection' is in required range
