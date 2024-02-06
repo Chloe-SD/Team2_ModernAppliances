@@ -75,12 +75,15 @@ namespace Team2_ModernAppliances
                 return newDishwasher;
             }
         }
-        protected void WriteToFile()
+        public void WriteToFile()
         {
-            // create appliances.txt file (just write over existing)
-            // iterate through the applianceList
-                // use the formatForFile method in the appliance classes to return a string for the list
-                // write each appliance to the file
+            //TODO: QUESTION: Change to Absolute Path?
+            string fileDestination = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliancestest.txt";
+            using StreamWriter writer = new StreamWriter(fileDestination);
+            foreach (Appliance app in applianceList) // For loop to write out each appliance to txt file
+            {
+                writer.WriteLine(app.FormatForFile());
+            }
         }
         public int GetUserSelection(string menu, int min, int max)
         {
