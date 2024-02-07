@@ -20,9 +20,20 @@ namespace Team2_ModernAppliances
 
             }
         }
-        public override void DisplayMainMenu()
+        public override int DisplayMainMenu()
         {
-            //TODO: This will be the main menu
+            // String for the display of the menu
+            string menu = "Welcome to Modern Appliances!\n" +
+                              "How may we assist you?\n" +
+                              "1 - Check out appliance\n" +
+                              "2 - Find appliances by brand\n" +
+                              "3 - Display appliances by type\n" +
+                              "4 - Produce random appliance list\n" +
+                              "5 - Save & exit";
+
+            //storing the integer and returning the user selction
+            int userSelection = GetUserSelection(menu, 1, 5);
+            return userSelection;
         }
         public override void Checkout()
         {
@@ -48,7 +59,10 @@ namespace Team2_ModernAppliances
             //iterate through list
             //if OBJ type is equal to input type, sent that OBj ToString()
         }
-        //public override void RandomSearch()
+        public override void RandomSearch()
+        {
+            // random search
+        }
         //{
 
         //}
