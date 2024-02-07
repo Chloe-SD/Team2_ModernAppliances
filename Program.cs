@@ -2,7 +2,7 @@
  Team 2 - CPRG 211 E
 Project 1 - Modern Appliances
 !!! NOTE - add ID numbers !!!
-Brooke                          
+Brooke - 000814122                        
 Chloe - 000913397
 Denver
 Zack
