@@ -29,10 +29,10 @@ namespace Team2_ModernAppliances
                               "2 - Find appliances by brand\n" +
                               "3 - Display appliances by type\n" +
                               "4 - Produce random appliance list\n" +
-                              "5 - Save & exit:";
+                              "5 - Save & exit";
 
             //storing the integer and returning the user selction
-            int userSelection = GetUserSelection(menu, 1, 5); // calling on this method for validity of user choice 
+            int userSelection = GetUserSelection(menu, 1, 5);
             return userSelection;
         }
         public override void Checkout()
@@ -59,7 +59,10 @@ namespace Team2_ModernAppliances
             //iterate through list
             //if OBJ type is equal to input type, sent that OBj ToString()
         }
-        //public override void RandomSearch()
+        public override void RandomSearch()
+        {
+            // random search
+        }
         //{
 
         //}
