@@ -37,18 +37,9 @@ namespace Team2_ModernAppliances
         }
         public override void Checkout()
         {
-            // NOTE:!!! Check the output example when writing any menus!!!
-            // prompt to enter item number
-            // search list by item number
-            // if item not foind print an error message
-            // if found call checkout method in base appliance class
-                    // this will return a bool of either true of false
-                    // if false is returned that means the item is not in stock (Already has quantity of 0)
-                    // if true is returned that means that the item IS in stock AND the quantity has been decreased by 1
-            //print whatever confirmation we are supposed to print (from sample)
-
-            // NOTE!! IMPORTANT!! There is already a checkout method in appliance, perhaps its better to just call that since it chan change the attribure itself
+            base.Checkout();
         }
+
         public override void SearchByType()
         {
             // NOTE:!!! Check the output example when writing any menus!!!

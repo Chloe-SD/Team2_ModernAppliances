@@ -16,6 +16,10 @@ namespace Team2_ModernAppliances
         protected string Colour { get; set; }
         protected double Price { get; set; }
 
+        public string GetItemNumber() => ItemNumber;
+        public int GetQuantity() => Quantity;
+        public void DecreaseQuantity() => Quantity--;
+
         public Appliance(string itemNumber, string brand, int quantity, string wattage, string colour, double price)
         {
             this.ItemNumber = itemNumber;

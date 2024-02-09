@@ -113,7 +113,47 @@ namespace Team2_ModernAppliances
         }
         public abstract void DisplayAllItems();
         public abstract int DisplayMainMenu();
-        public abstract void Checkout();
+        public virtual void Checkout()
+
+        {
+            Console.WriteLine("Enter the item number of an appliance:");
+            string itemNumberInput = Console.ReadLine();
+
+            Appliance applianceToCheckout = null;
+            foreach (Appliance appliance in applianceList)
+            {
+                if (appliance.GetItemNumber() == itemNumberInput)
+                {
+                    applianceToCheckout = appliance;
+                    break;
+                }
+            }
+
+            if (applianceToCheckout != null)
+            {
+                if (itemNumberInput.Length == 9 && int.TryParse(itemNumberInput, out int itemNumber) && itemNumber >= 100000000 && itemNumber <= 999999999)
+                {
+                    if (applianceToCheckout.GetQuantity() > 0)
+                    {
+                        applianceToCheckout.DecreaseQuantity();
+                        Console.WriteLine($"Appliance \"{applianceToCheckout.GetItemNumber()}\" has been checked out.\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("The appliance is not available to be checked out.\n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid item number. Please enter a 9-digit number.\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No appliances found with that item number.\n");
+            }
+        }
+
         public abstract void SearchByType();
         public abstract void RandomSearch();
 
