@@ -26,7 +26,7 @@ namespace Team2_ModernAppliances
             string filePath = @"C:\Users\Jedi4\source\repos\Team2_ModernAppliances\appliances.txt";
             StreamReader reader = new StreamReader(filePath);
             
-            string line = reader.ReadLine(); // read first line of file
+            string? line = reader.ReadLine(); // read first line of file
             while (line != null) // loop as long as line is not null value
             {
                 string[] parts = line.Split(';'); // create an array of attributes (Split at semicolon)
@@ -75,17 +75,12 @@ namespace Team2_ModernAppliances
                 return newDishwasher;
             }
         }
-        public void WriteToFile()
+        protected void WriteToFile()
         {
-
-
-            //TODO: QUESTION: Change to Absolute Path?
-            string fileDestination = @"C:\Users\Jedi4\source\repos\Team2_ModernAppliances\appliancesTEST.txt";
-            using StreamWriter writer = new StreamWriter(fileDestination);
-            foreach (Appliance app in applianceList) // For loop to write out each appliance to txt file
-            {
-                writer.WriteLine(app.FormatForFile());
-            }
+            // create appliances.txt file (just write over existing)
+            // iterate through the applianceList
+                // use the formatForFile method in the appliance classes to return a string for the list
+                // write each appliance to the file
         }
         public int GetUserSelection(string menu, int min, int max)
         {
@@ -100,7 +95,7 @@ namespace Team2_ModernAppliances
             while (true) // loop goes until a valid selection is made
             {
                 Console.WriteLine(menu); // prints the menu EACH TIME the loop runs
-                string input = Console.ReadLine(); // reads user input
+                string? input = Console.ReadLine(); // reads user input
                 if (int.TryParse(input, out int selection)) // tries to parse an int, if sucessful saves as 'selection'
                 {
                     if (selection >= min && selection <= max) // determine if 'selection' is in required range
@@ -117,6 +112,7 @@ namespace Team2_ModernAppliances
         public abstract int DisplayMainMenu();
         public abstract void Checkout();
         public abstract void SearchByType();
+        public abstract void RandomSearch();
 
     }
 }
