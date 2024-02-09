@@ -24,8 +24,8 @@ namespace Team2_ModernAppliances
             // please let me know - chloe
             
             // used following for testing, created list of all appliances and sent all of them ToString
-            //ApplianceManagement x = new ProgramMenu();
-            //x.SearchByType();
+            ApplianceManagement x = new ProgramMenu();
+            x.SearchByType();
             //x.DisplayMainMenu();
             //x.DisplayAllItems();
         }

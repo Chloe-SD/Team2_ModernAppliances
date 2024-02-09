@@ -31,5 +31,10 @@ namespace Team2_ModernAppliances.Entities
                 $"Height: {this.Height}\n" +
                 $"Width: {this.Width}";
         }
+
+        public int getDoors()
+        { 
+            return this.Doors;
+        }
     }
 }

@@ -51,6 +51,11 @@ namespace Team2_ModernAppliances.Entities
             }
         }
 
+        public string GetSoundRatingDisplay()
+        {
+            return this.SoundRatingDisplay;
+        }
+
         // Override ToString method to provide a string representation of the Dishwasher object
         public override string ToString()
         {

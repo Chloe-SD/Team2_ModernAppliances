@@ -28,5 +28,10 @@ namespace Team2_ModernAppliances.Entities
                 $"Grade: {this.Grade} \n"+
                 $"Battery Voltage: {this.BatteryVoltage} V";
         }
+
+        public int GetBatteryVoltage()
+        { 
+            return this.BatteryVoltage;
+        }
     }
 }

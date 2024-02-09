@@ -113,6 +113,5 @@ namespace Team2_ModernAppliances
         public abstract void Checkout();
         public abstract void SearchByType();
         public abstract void RandomSearch();
-
     }
 }

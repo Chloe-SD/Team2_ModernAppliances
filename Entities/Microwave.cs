@@ -37,6 +37,11 @@ namespace Team2_ModernAppliances.Entities
                 return RoomType.WorkSite;
             }
         }
+
+        public RoomType GetRoomType()
+        { 
+            return this.RoomType;
+        }
         public override string FormatForFile()
         {
             // formatted string for file, seperated by ;
