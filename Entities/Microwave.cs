@@ -48,7 +48,7 @@ namespace Team2_ModernAppliances.Entities
             // then returns microwave specific attributes
             return $"{base.ToString()}" +
                 $"Capacity: {this.Capacity}\n" +
-                $"RoomType: {this.RoomType}";
+                $"RoomType: {this.RoomType}\n";
         }
     }
 }

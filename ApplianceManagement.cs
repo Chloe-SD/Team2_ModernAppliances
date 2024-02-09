@@ -23,8 +23,8 @@ namespace Team2_ModernAppliances
         private void PopulateList()
         {
             // TODO: QUESTION: can we make this a relative path instead? will use for now to build program
-            string filePath = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliances.txt";
-            StreamReader reader = new StreamReader(filePath);
+            //string filePath = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliances.txt";
+            StreamReader reader = new StreamReader(Program.filePath);
             
             string? line = reader.ReadLine(); // read first line of file
             while (line != null) // loop as long as line is not null value
@@ -33,6 +33,13 @@ namespace Team2_ModernAppliances
                 Appliance newAppliance = CreateAppliance(parts); // create new appliance OBJ
                 applianceList.Add(newAppliance); // add to list      
                 line = reader.ReadLine(); // read next line of file for next loop iteration
+            }
+        }
+        protected void DisplaySelectedAppliances(List<Appliance> applianceList)
+        {
+            foreach (Appliance appliance in applianceList)
+            {
+                Console.WriteLine(appliance);
             }
         }
         private Appliance CreateAppliance(string[] parts)
@@ -78,8 +85,8 @@ namespace Team2_ModernAppliances
         public void WriteToFile()
         {
             //TODO: QUESTION: Change to Absolute Path?
-            string fileDestination = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliancestest.txt";
-            using StreamWriter writer = new StreamWriter(fileDestination);
+            //string fileDestination = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliancestest.txt";
+            using StreamWriter writer = new StreamWriter(Program.filePath);
             foreach (Appliance app in applianceList) // For loop to write out each appliance to txt file
             {
                 writer.WriteLine(app.FormatForFile());
@@ -111,9 +118,23 @@ namespace Team2_ModernAppliances
             }
             
         }
-        public abstract void DisplayAllItems();
-        public abstract int DisplayMainMenu();
+        public int DisplayMainMenu()
+        {
+            // String for the display of the menu
+            string menu = "Welcome to Modern Appliances!\n" +
+                              "How may we assist you?\n" +
+                              "1 - Check out appliance\n" +
+                              "2 - Find appliances by brand\n" +
+                              "3 - Display appliances by type\n" +
+                              "4 - Produce random appliance list\n" +
+                              "5 - Save & exit";
+
+            //storing the integer and returning the user selction
+            int userSelection = GetUserSelection(menu, 1, 5);
+            return userSelection;
+        }
         public abstract void Checkout();
+        public abstract void SearchByBrand();
         public abstract void SearchByType();
         public abstract void RandomSearch();
 

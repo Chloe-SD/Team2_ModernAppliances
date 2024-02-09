@@ -56,7 +56,7 @@ namespace Team2_ModernAppliances.Entities
         {
             return $"{base.ToString()}" +
                    $"Sound Rating: {SoundRatingDisplay}\n" +
-                   $"Feature: {Feature}";
+                   $"Feature: {Feature}\n";
         }
 
         // Method to format dishwasher details for file output

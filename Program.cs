@@ -14,9 +14,11 @@ using System.Runtime.Intrinsics.X86;
 
 namespace Team2_ModernAppliances
 {
+    
     internal class Program
     {
-        
+        public static string filePath = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliances.txt";
+
         static void Main(string[] args)
         {
             // NOTE: I commonly use three terms in my comments to be able to search an entire
@@ -27,7 +29,7 @@ namespace Team2_ModernAppliances
             // see if user input can be tabbed, underlined and bolded
             
             ApplianceManagement system = new ProgramMenu();
-            system.DisplayAllItems();
+            //system.DisplayAllItems();
             while (true)
             {
                 int mainMenuSelection = system.DisplayMainMenu(); //Displays main menu, gets user selection
@@ -37,7 +39,7 @@ namespace Team2_ModernAppliances
                 }
                 else if (mainMenuSelection == 2) // search by  appliance brand
                 {
-                    // method needed
+                    system.SearchByBrand();
                 }
                 else if (mainMenuSelection == 3) // search by type of appliance
                 {

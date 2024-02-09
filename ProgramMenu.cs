@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,44 +11,85 @@ namespace Team2_ModernAppliances
     {
         public ProgramMenu():base()
         {
-            //TODO: Put the welcome message here
-        }
-        public override void DisplayAllItems()
-        {
-            foreach (Appliance appliance in base.applianceList)
-            {
-                Console.WriteLine(appliance);
-
-            }
-        }
-        public override int DisplayMainMenu()
-        {
-            // String for the display of the menu
-            string menu = "Welcome to Modern Appliances!\n" +
-                              "How may we assist you?\n" +
-                              "1 - Check out appliance\n" +
-                              "2 - Find appliances by brand\n" +
-                              "3 - Display appliances by type\n" +
-                              "4 - Produce random appliance list\n" +
-                              "5 - Save & exit";
-
-            //storing the integer and returning the user selction
-            int userSelection = GetUserSelection(menu, 1, 5);
-            return userSelection;
+            //just makes a menu OBJ
         }
         public override void Checkout()
-        {
-            // NOTE:!!! Check the output example when writing any menus!!!
-            // prompt to enter item number
-            // search list by item number
-            // if item not foind print an error message
-            // if found call checkout method in base appliance class
-                    // this will return a bool of either true of false
-                    // if false is returned that means the item is not in stock (Already has quantity of 0)
-                    // if true is returned that means that the item IS in stock AND the quantity has been decreased by 1
-            //print whatever confirmation we are supposed to print (from sample)
 
-            // NOTE!! IMPORTANT!! There is already a checkout method in appliance, perhaps its better to just call that since it chan change the attribure itself
+        {
+            Console.WriteLine("Enter the item number of an appliance:");
+            string? itemNumberInput = Console.ReadLine(); // ? defines that the field could be null, removes warning
+            int validatedItemNumber = 0;
+            if (itemNumberInput != null)
+            {
+                if (itemNumberInput.Length == 9 && int.TryParse(itemNumberInput, out int itemNumber) && itemNumber >= 100000000 && itemNumber <= 999999999)
+                {
+                    validatedItemNumber = itemNumber; // gives us a validated 9 digit int in the specified range
+                }
+                else
+                {
+                    Console.WriteLine("Invalid item number. Please enter a 9-digit number.\n");
+                    return; // breaks the process if entry invalid
+                }
+            }
+            // at this point we have a validated item number to compare to appliance objects. 
+            // note that the below is unreachable is validatedItemNumber still is 0, or is invalid
+
+            Appliance? applianceToCheckout = null; // ? to define value van be null
+            foreach (Appliance appliance in applianceList)
+            {
+                if (appliance.GetItemNumber() == validatedItemNumber.ToString()) 
+                {
+                    //now we are comparing appliance to validated input, rather than any potential input
+                    // eliminating unnessesary calculations
+                    applianceToCheckout = appliance;
+                    break; // nice move, stopping the rest of the loop if a match is found!
+                }
+            }
+
+            if (applianceToCheckout != null)
+            {
+                bool applianceAvailable = applianceToCheckout.Checkout(); // This will check if available. and if so decrease QTY for us
+                if (applianceAvailable)
+                {
+                    Console.WriteLine($"Appliance \"{applianceToCheckout.GetItemNumber()}\" has been checked out.\n");
+                    return; // all we need is confirmation msg. we know the QTY is handled already due to the true bool
+                }
+                else
+                {
+                    Console.WriteLine("The appliance is not available to be checked out.\n");
+                    return;
+                }
+            }
+            else
+            {
+                Console.WriteLine("No appliances found with that item number.\n");
+                return;
+            }
+        }
+        public override void SearchByBrand()
+        {
+            Console.WriteLine("Enter brand to search for:");
+            string? userInput = Console.ReadLine();
+            if (userInput != null)
+            {
+                if (!userInput.Any(char.IsDigit))
+                {
+                    List<Appliance> brand = applianceList
+                        .Where(appliance => appliance.GetBrand() == userInput.ToUpper())
+                        .ToList();
+                    if (brand.Count > 0)
+                    {
+                        Console.WriteLine("Matching Appliances:\n");
+                        DisplaySelectedAppliances(brand);
+                        return;
+                    }
+                    Console.WriteLine("Sorry, No appliances found with that brand name.\n");
+                    return;
+
+                }
+            }
+            Console.WriteLine("Invalid brand name.\n");
+            return;
         }
         public override void SearchByType()
         {
@@ -61,10 +103,18 @@ namespace Team2_ModernAppliances
         }
         public override void RandomSearch()
         {
-            // random search
+            string randoPrompt = $"Please enter a number between 1 and {applianceList.Count}";
+            int randoNum = GetUserSelection(randoPrompt, 1, applianceList.Count);
+            List<Appliance> randomList = new List<Appliance>();
+            // generate a number of random integers (between 1 and inputList.Count) equal to userEntry
+            for (int i = 0; i < randoNum; i++)
+            {
+                Random rand = new Random();
+                int random = rand.Next(1, (applianceList.Count + 1)); 
+                randomList.Add(applianceList[random-1]);
+            }
+            // for each random integer generated, print the appliance object at inputList[random int]
+            DisplaySelectedAppliances(randomList);
         }
-        //{
-
-        //}
     }
 }
