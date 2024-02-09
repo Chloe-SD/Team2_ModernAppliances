@@ -23,7 +23,7 @@ namespace Team2_ModernAppliances
         private void PopulateList()
         {
             // TODO: QUESTION: can we make this a relative path instead? will use for now to build program
-            string filePath = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliances.txt";
+            string filePath = @"appliances.txt";
             StreamReader reader = new StreamReader(filePath);
             
             string? line = reader.ReadLine(); // read first line of file
@@ -78,7 +78,7 @@ namespace Team2_ModernAppliances
         public void WriteToFile()
         {
             //TODO: QUESTION: Change to Absolute Path?
-            string fileDestination = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliancestest.txt";
+            string fileDestination = @"C:\Users\Denve\OneDrive\Desktop\OOP II\Project\DenverBranch\appliancestest.txt";
             using StreamWriter writer = new StreamWriter(fileDestination);
             foreach (Appliance app in applianceList) // For loop to write out each appliance to txt file
             {
@@ -110,6 +110,14 @@ namespace Team2_ModernAppliances
                 Console.WriteLine($"Invalid selection. Please enter a whole number between {min} and {max}");
             }
             
+        }
+
+        public void DisplaySelectedAppliances(List<Appliance> selectedAppliances)
+        {
+            foreach (Appliance appliance in selectedAppliances)
+            {
+                Console.WriteLine($"{appliance}\n");
+            }
         }
         public abstract void DisplayAllItems();
         public abstract int DisplayMainMenu();

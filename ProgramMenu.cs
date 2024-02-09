@@ -61,7 +61,39 @@ namespace Team2_ModernAppliances
         }
         public override void RandomSearch()
         {
-            // random search
+            Console.WriteLine($"Please enter a number between 1 and {applianceList.Count}");
+            string userEntry = Console.ReadLine();
+            int randoNum;
+            List<Appliance> randomList = new List<Appliance>();
+            while (true)
+            {
+                if (int.TryParse(userEntry, out randoNum))
+                {
+                    if (1 <= randoNum && randoNum <= applianceList.Count)
+                    {
+                        // generate a number of random integers (between 1 and inputList.Count) equal to userEntry
+                        for (int i = 0; i < randoNum; i++)
+                        {
+                            Random rand = new Random();
+                            int random = rand.Next(1, (applianceList.Count + 1));
+                            randomList.Add(applianceList[random]);
+                        }
+                        // for each random integer generated, print the appliance object at inputList[random int]
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Invalid entry. Please enter a number between 1 and {applianceList.Count}");
+                        userEntry = Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Invalid entry. Please enter a number between 1 and {applianceList.Count}");
+                    userEntry = Console.ReadLine();
+                }
+            }
+            DisplaySelectedAppliances(randomList);
         }
         //{
 
