@@ -92,32 +92,6 @@ namespace Team2_ModernAppliances
                 writer.WriteLine(app.FormatForFile());
             }
         }
-        public int GetUserSelection(string menu, int min, int max)
-        {
-            // Use this to get a selection for your menu. 
-            // NOTE: This method will actually display the menu. Pass the ENTIRE menu in as one formatted string
-            // Also pass in the minimum and maximum acceptable replies.
-
-            // an example of using this would look like this
-            // string exampleMenu = $"1 - selection one \n2 - selection two \n3 - selection three"
-            // int userSelection = GetUserSelection(exampleMenu, 1, 3)
-
-            while (true) // loop goes until a valid selection is made
-            {
-                Console.WriteLine(menu); // prints the menu EACH TIME the loop runs
-                string? input = Console.ReadLine(); // reads user input
-                if (int.TryParse(input, out int selection)) // tries to parse an int, if sucessful saves as 'selection'
-                {
-                    if (selection >= min && selection <= max) // determine if 'selection' is in required range
-                    {
-                        return selection; // return the int and break the loop
-                    }
-                }
-                // if not valid, prints this error and loops again
-                Console.WriteLine($"Invalid selection. Please enter a whole number between {min} and {max}");
-            }
-            
-        }
         public int DisplayMainMenu()
         {
             // String for the display of the menu
@@ -127,10 +101,11 @@ namespace Team2_ModernAppliances
                               "2 - Find appliances by brand\n" +
                               "3 - Display appliances by type\n" +
                               "4 - Produce random appliance list\n" +
-                              "5 - Save & exit";
+                              "5 - Save & exit\n" +
+                              "Enter option:\n";
 
             //storing the integer and returning the user selction
-            int userSelection = GetUserSelection(menu, 1, 5);
+            int userSelection = ProgramTools.GetUserSelection(menu, 1, 5);
             return userSelection;
         }
         public abstract void Checkout();

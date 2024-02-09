@@ -17,6 +17,7 @@ namespace Team2_ModernAppliances
     
     internal class Program
     {
+        
         public static string filePath = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliances.txt";
 
         static void Main(string[] args)
@@ -51,9 +52,9 @@ namespace Team2_ModernAppliances
                 }
                 else // save program and terminate loop.
                 {
-                    // write method commented while testing. dont want to make a new file every time
-                    // I run a test.
-                    //system.WriteToFile(); 
+                    // write method commented while testing. dont want to make a new file every time you test
+                  
+                    system.WriteToFile(); 
                     break; 
                 }
 

@@ -75,7 +75,7 @@ namespace Team2_ModernAppliances
                 if (!userInput.Any(char.IsDigit))
                 {
                     List<Appliance> brand = applianceList
-                        .Where(appliance => appliance.GetBrand() == userInput.ToUpper())
+                        .Where(appliance => appliance.GetBrand().ToUpper() == userInput.ToUpper())
                         .ToList();
                     if (brand.Count > 0)
                     {
@@ -104,7 +104,7 @@ namespace Team2_ModernAppliances
         public override void RandomSearch()
         {
             string randoPrompt = $"Please enter a number between 1 and {applianceList.Count}";
-            int randoNum = GetUserSelection(randoPrompt, 1, applianceList.Count);
+            int randoNum = ProgramTools.GetUserSelection(randoPrompt, 1, applianceList.Count);
             List<Appliance> randomList = new List<Appliance>();
             // generate a number of random integers (between 1 and inputList.Count) equal to userEntry
             for (int i = 0; i < randoNum; i++)
