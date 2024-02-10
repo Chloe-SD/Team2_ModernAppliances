@@ -22,7 +22,7 @@ namespace Team2_ModernAppliances
             string validatedItemNumber = "000000000";
             if (itemNumberInput != null)
             {
-                if (itemNumberInput.Length == 9 && int.TryParse(itemNumberInput, out int itemNumber) && itemNumber >= 100000000 && itemNumber <= 999999999)
+                if (itemNumberInput.Length == 9 && int.TryParse(itemNumberInput, out int itemNumber) && itemNumber >= 100000000 && itemNumber <= 599999999)
                 {
                     validatedItemNumber = itemNumber.ToString(); // gives us a validated 9 digit int in the specified range
                 }

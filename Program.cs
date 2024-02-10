@@ -2,12 +2,16 @@
  Team 2 - CPRG 211 E
 Project 1 - Modern Appliances
 !!! NOTE - add ID numbers !!!
-Brooke                          
+Brooke - 000914122                         
 Chloe - 000913397
-Denver
-Zack
+Denver - 000920687 
+Zack - 000927584
 
- */
+
+Summary: This program will manage a text file database of appliances. allowing one to search by type, brand, 
+even a random list. The program will also allow one to "check out" an appliance, which will alter the quantity availalbe
+and save the canges in the text file at the time that the program closes.
+ */ 
 
 using System.ComponentModel;
 using System.Runtime.Intrinsics.X86;
@@ -17,20 +21,15 @@ namespace Team2_ModernAppliances
     
     internal class Program
     {
+        // all methods are explained where they occur.
         
+
+        //IMPORTANT!!!! Replace this filepath with your absolute pate before running this program. 
         public static string filePath = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliances.txt";
 
         static void Main(string[] args)
-        {
-            // NOTE: I commonly use three terms in my comments to be able to search an entire
-            // file for things quickly (NOTE: TODO: and QUESTION:) if y'all have a system that will work better for you
-            // please let me know - chloe
-
-            // TODO: List
-            // see if user input can be tabbed, underlined and bolded
-            
+        {           
             ApplianceManagement system = new ProgramMenu();
-            //system.DisplayAllItems();
             while (true)
             {
                 int mainMenuSelection = system.DisplayMainMenu(); //Displays main menu, gets user selection
@@ -52,8 +51,7 @@ namespace Team2_ModernAppliances
                 }
                 else // save program and terminate loop.
                 {
-                    // write method commented while testing. dont want to make a new file every time you test
-                  
+                    // write method commented while testing. dont want to make a new file every time you test                 
                     system.WriteToFile(); 
                     break; 
                 }
