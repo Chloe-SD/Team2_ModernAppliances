@@ -18,6 +18,10 @@ namespace Team2_ModernAppliances.Entities
             this.Height = height;
             this.Width = width;
         }
+        public int GetDoors()
+        {
+            return this.Doors;
+        }
 
         public override string FormatForFile()
         {

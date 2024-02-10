@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using Team2_ModernAppliances.Entities;
 
 namespace Team2_ModernAppliances
 {
@@ -18,12 +19,12 @@ namespace Team2_ModernAppliances
         {
             Console.WriteLine("Enter the item number of an appliance:");
             string? itemNumberInput = Console.ReadLine(); // ? defines that the field could be null, removes warning
-            int validatedItemNumber = 0;
+            string validatedItemNumber = "000000000";
             if (itemNumberInput != null)
             {
                 if (itemNumberInput.Length == 9 && int.TryParse(itemNumberInput, out int itemNumber) && itemNumber >= 100000000 && itemNumber <= 999999999)
                 {
-                    validatedItemNumber = itemNumber; // gives us a validated 9 digit int in the specified range
+                    validatedItemNumber = itemNumber.ToString(); // gives us a validated 9 digit int in the specified range
                 }
                 else
                 {
@@ -37,7 +38,7 @@ namespace Team2_ModernAppliances
             Appliance? applianceToCheckout = null; // ? to define value van be null
             foreach (Appliance appliance in applianceList)
             {
-                if (appliance.GetItemNumber() == validatedItemNumber.ToString()) 
+                if (appliance.GetItemNumber() == validatedItemNumber) 
                 {
                     //now we are comparing appliance to validated input, rather than any potential input
                     // eliminating unnessesary calculations
@@ -93,13 +94,53 @@ namespace Team2_ModernAppliances
         }
         public override void SearchByType()
         {
-            // NOTE:!!! Check the output example when writing any menus!!!
-            // prompt to choose type
-            // NOTE: There may be other options asked, check the sample output, we might need sub-menus here
-            // use an int verify method to make sure input is acceptable
-            // store whatever type they chose as a variable
-            //iterate through list
-            //if OBJ type is equal to input type, sent that OBj ToString()
+            List<Appliance> selectedAppliances = new List<Appliance>();
+            int userSelection = DisplayByTypeMenu();
+            if (userSelection == 1) // Refrigerators
+            {
+                string doorsMenu = $"Enter number of doors: \n2 (double door), 3 (three doors) or 4 (four doors):";
+                int doorsSelection = ProgramTools.GetUserSelection(doorsMenu, 2, 4); //get a validated number between 2 and 4
+                List<Appliance> refrigerators = applianceList //itearate thru appliances
+                    .Where(appliance => appliance is Refrigerator && ((Refrigerator)appliance).GetDoors() == doorsSelection)
+                    .ToList(); // Lambda to compare applainces, Filters out anything that isnt a fridge with selected number of doors and adds them to a list as it goes.
+                DisplaySelectedAppliances(refrigerators); // display the list of appliances
+                return;
+
+            }
+            else if (userSelection == 2) // Vacuums
+            {
+                string voltagePrompt = $"Enter battery voltage value. 18 V (low) or 24 V (high)";
+                List<string> voltages = new List<string>() { "18", "24" };
+                string voltageSelection = ProgramTools.GetUserSelection(voltagePrompt, voltages);
+                List<Appliance> vacuums = applianceList
+                     .Where(appliance => appliance is Vacuum && ((Vacuum)appliance).GetVoltage() == voltageSelection)
+                     .ToList();
+                DisplaySelectedAppliances(vacuums);
+                return;
+            }
+            else if (userSelection == 3) //Microwaves
+            {
+                string roomPrompt = $"Room where the microwave will be installed: K (kitchen) or W (work site):";
+                List<string> roomTypes = new List<string>() { "K", "W" };
+                string roomSelection = ProgramTools.GetUserSelection(roomPrompt, roomTypes);
+                List<Appliance> microwaves = applianceList
+                    .Where(appliance => appliance is Microwave && ((Microwave)appliance).GetRoomValue() == roomSelection)
+                    .ToList();
+                DisplaySelectedAppliances(microwaves);
+                return;
+            }
+            else // 4 - Dishwashers
+            {
+                string ratingPrompt = $"Enter the sound rating of the dishwasher: \nQt (Quietest), Qr (Quieter), Qu(Quiet) or M (Moderate):";
+                List<string> acceptableInput = new List<string>() { "QT", "QR", "QU", "M" };
+                string ratingSelection = ProgramTools.GetUserSelection(ratingPrompt, acceptableInput);
+                List<Appliance> dishwashers = applianceList
+                    .Where(appliance => appliance is Dishwasher && ((Dishwasher)appliance).GetRating().ToUpper() == ratingSelection)
+                    .ToList();
+                DisplaySelectedAppliances(dishwashers);
+                //display
+                return;
+            }
         }
         public override void RandomSearch()
         {

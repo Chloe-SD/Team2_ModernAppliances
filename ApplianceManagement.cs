@@ -108,6 +108,11 @@ namespace Team2_ModernAppliances
             int userSelection = ProgramTools.GetUserSelection(menu, 1, 5);
             return userSelection;
         }
+        protected int DisplayByTypeMenu()
+        {
+            string ByTypeMenu = $"Appliance Types\n1 – Refrigerators\n2 – Vacuums\n3 – Microwaves\n4 – Dishwashers\nEnter type of appliance:\n";
+            return ProgramTools.GetUserSelection(ByTypeMenu, 1, 4);
+        }
         public abstract void Checkout();
         public abstract void SearchByBrand();
         public abstract void SearchByType();

@@ -26,6 +26,10 @@ namespace Team2_ModernAppliances.Entities
             this.RoomValue = room;
             this.RoomType = GetRoomType(room);
         }
+        public string GetRoomValue()
+        {
+            return this.RoomValue.ToString();
+        }
         public RoomType GetRoomType(char room)
         {
             if (room == 'K')

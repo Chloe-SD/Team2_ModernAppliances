@@ -18,6 +18,10 @@ namespace Team2_ModernAppliances.Entities
             this.Grade = grade;
             this.voltageDisplay = GetVoltageDisplay(batteryVoltage);
         }
+        public string GetVoltage()
+        {
+            return this.BatteryVoltage.ToString();
+        }
 
         private string GetVoltageDisplay(int voltage)
         {
