@@ -19,8 +19,12 @@ namespace Team2_ModernAppliances.Entities
         {
             this.SoundRating = soundRating; // Set the sound rating
             this.Feature = feature; // Set the feature
-            this.SoundRatingDisplay = GetSoundRatingDisplay(this.SoundRating); // get readable rating through method
+            this.SoundRatingDisplay = GetSoundRatingDisplay(soundRating); // get readable rating through method
 
+        }
+        public string GetRating()
+        {
+            return this.SoundRating;
         }
         
         public string GetSoundRatingDisplay(string soundRating)
@@ -28,15 +32,15 @@ namespace Team2_ModernAppliances.Entities
             // Public property to get the human-readable display of sound rating
             {
                 // Return the corresponding display text based on the sound rating code
-                if (soundRating == "QT")
+                if (soundRating == "Qt")
                 {
                     return "Quietest";
                 }
-                else if (soundRating == "QR")
+                else if (soundRating == "Qr")
                 {
                     return "Quieter";
                 }
-                else if (soundRating == "QU")
+                else if (soundRating == "Qu")
                 {
                     return "Quiet";
                 }
@@ -54,10 +58,10 @@ namespace Team2_ModernAppliances.Entities
         // Override ToString method to provide a string representation of the Dishwasher object
         public override string ToString()
         {
-            base.ToString();
-            return
-                   $"Sound Rating: {SoundRatingDisplay}\n" +
-                   $"Feature: {Feature}\n";
+            return $"{base.ToString()}" +
+                $"Feature: {Feature}\n"+
+                $"Sound Rating: {SoundRatingDisplay}\n";
+                   
         }
 
         // Method to format dishwasher details for file output

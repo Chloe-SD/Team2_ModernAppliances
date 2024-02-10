@@ -18,6 +18,10 @@ namespace Team2_ModernAppliances.Entities
             this.Height = height;
             this.Width = width;
         }
+        public int GetDoors()
+        {
+            return this.Doors;
+        }
 
         public override string FormatForFile()
         {
@@ -26,12 +30,10 @@ namespace Team2_ModernAppliances.Entities
 
         public override string ToString()
         {
-            // all appliances need to have a ToString. but you can call base as part of the output
-            // and just add in the additional details specific to appliance type
-            base.ToString();
-            return $"Doors: {this.Doors}\n" +
+            return $"{base.ToString()}" +
+                $"Doors: {this.Doors}\n" +
                 $"Height: {this.Height}\n" +
-                $"Width: {this.Width}";
+                $"Width: {this.Width}\n";
         }
     }
 }

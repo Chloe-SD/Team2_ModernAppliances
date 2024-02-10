@@ -15,6 +15,8 @@ namespace Team2_ModernAppliances
         protected string Wattage { get; set; }
         protected string Colour { get; set; }
         protected double Price { get; set; }
+        public string GetItemNumber() => ItemNumber;
+        public string GetBrand() => Brand;
 
         public Appliance(string itemNumber, string brand, int quantity, string wattage, string colour, double price)
         {
@@ -30,13 +32,17 @@ namespace Team2_ModernAppliances
                 //public Microwave(all attributes):base(base attributes)
                     // this.microwaveAttributes = microwave specific attributes
         }
-        public void Checkout()
+        public bool Checkout()
         {
-            Console.WriteLine("Checkout() not written yet");
-            //call this when "purchasing" an appliance to decrease QUANTITY by 1
-            //check if stock is avaialble
-            //if available - this.Quantity--;
-            //if unavailable - Error
+            if (this.Quantity >= 1) // check if item is in stock
+            {
+                this.Quantity--; // if in stock, decrease quantity by 1
+                return true; // true tells the caller that the process is sucessful
+            }
+            else
+            {
+                return false; // otherwise, false tells the caller that the item is unavailale
+            }
         }
         public void DetermineApplianceType()
         {
@@ -56,7 +62,7 @@ namespace Team2_ModernAppliances
                 $"Quantity: {this.Quantity}\n" +
                 $"Wattage: {this.Wattage}\n" +
                 $"Colour: {this.Colour}\n" +
-                $"Price: {this.Price}";
+                $"Price: {this.Price}\n";
         }
      
     }
