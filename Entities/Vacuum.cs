@@ -41,7 +41,7 @@ namespace Team2_ModernAppliances.Entities
         {
             return $"{base.ToString()}" +
                 $"Grade: {this.Grade} \n"+
-                $"Battery Voltage: {this.voltageDisplay}\n";
+                $"Battery Voltage: {this.voltageDisplay}";
         }
     }
 }

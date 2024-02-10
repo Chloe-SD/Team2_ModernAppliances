@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace Team2_ModernAppliances
@@ -17,7 +18,6 @@ namespace Team2_ModernAppliances
             // an example of using this would look like this
             // string exampleMenu = $"1 - selection one \n2 - selection two \n3 - selection three"
             // int userSelection = GetUserSelection(exampleMenu, 1, 3)
-
             while (true) // loop goes until a valid selection is made
             {
                 Console.WriteLine(menu); // prints the menu EACH TIME the loop runs
@@ -30,9 +30,8 @@ namespace Team2_ModernAppliances
                     }
                 }
                 // if not valid, prints this error and loops again
-                Console.WriteLine($"Invalid selection. Please enter a whole number between {min} and {max}");
+                Console.WriteLine($"\nInvalid selection. Please enter a whole number between {min} and {max}\n");
             }
-
         }
         public static string GetUserSelection(string prompt, List<string> acceptableInput)
         {
