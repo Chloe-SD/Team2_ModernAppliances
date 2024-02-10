@@ -78,7 +78,7 @@ namespace Team2_ModernAppliances
         public void WriteToFile()
         {
             //TODO: QUESTION: Change to Absolute Path?
-            string fileDestination = @"C:\Users\Denve\OneDrive\Desktop\OOP II\Project\DenverBranch\appliancestest.txt";
+            string fileDestination = @"appliancestest.txt";
             using StreamWriter writer = new StreamWriter(fileDestination);
             foreach (Appliance app in applianceList) // For loop to write out each appliance to txt file
             {
