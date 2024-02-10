@@ -17,7 +17,7 @@ namespace Team2_ModernAppliances
         public override void Checkout()
 
         {
-            Console.WriteLine("Enter the item number of an appliance:");
+            Console.WriteLine("\nEnter the item number of an appliance:\n");
             string? itemNumberInput = Console.ReadLine(); // ? defines that the field could be null, removes warning
             string validatedItemNumber = "000000000";
             if (itemNumberInput != null)
@@ -28,7 +28,7 @@ namespace Team2_ModernAppliances
                 }
                 else
                 {
-                    Console.WriteLine("Invalid item number. Please enter a 9-digit number.\n");
+                    Console.WriteLine("\nNo appliances found with that item number.\n");
                     return; // breaks the process if entry invalid
                 }
             }
@@ -52,24 +52,24 @@ namespace Team2_ModernAppliances
                 bool applianceAvailable = applianceToCheckout.Checkout(); // This will check if available. and if so decrease QTY for us
                 if (applianceAvailable)
                 {
-                    Console.WriteLine($"Appliance \"{applianceToCheckout.GetItemNumber()}\" has been checked out.\n");
+                    Console.WriteLine($"\nAppliance \"{applianceToCheckout.GetItemNumber()}\" has been checked out.\n");
                     return; // all we need is confirmation msg. we know the QTY is handled already due to the true bool
                 }
                 else
                 {
-                    Console.WriteLine("The appliance is not available to be checked out.\n");
+                    Console.WriteLine("\nThe appliance is not available to be checked out.\n");
                     return;
                 }
             }
             else
             {
-                Console.WriteLine("No appliances found with that item number.\n");
+                Console.WriteLine("\nNo appliances found with that item number.\n");
                 return;
             }
         }
         public override void SearchByBrand()
         {
-            Console.WriteLine("Enter brand to search for:");
+            Console.WriteLine("\nEnter brand to search for:\n");
             string? userInput = Console.ReadLine();
             if (userInput != null)
             {
@@ -80,16 +80,16 @@ namespace Team2_ModernAppliances
                         .ToList();
                     if (brand.Count > 0)
                     {
-                        Console.WriteLine("Matching Appliances:\n");
+                        Console.WriteLine("\nMatching Appliances:");
                         DisplaySelectedAppliances(brand);
                         return;
                     }
-                    Console.WriteLine("Sorry, No appliances found with that brand name.\n");
+                    Console.WriteLine("\nSorry, No appliances found with that brand name.");
                     return;
 
                 }
             }
-            Console.WriteLine("Invalid brand name.\n");
+            Console.WriteLine("\nInvalid brand name.\n");
             return;
         }
         public override void SearchByType()
@@ -98,8 +98,9 @@ namespace Team2_ModernAppliances
             int userSelection = DisplayByTypeMenu();
             if (userSelection == 1) // Refrigerators
             {
-                string doorsMenu = $"Enter number of doors: \n2 (double door), 3 (three doors) or 4 (four doors):";
+                string doorsMenu = $"\nEnter number of doors: \n2 (double door), 3 (three doors) or 4 (four doors):\n";
                 int doorsSelection = ProgramTools.GetUserSelection(doorsMenu, 2, 4); //get a validated number between 2 and 4
+                //Console.WriteLine("\n");
                 List<Appliance> refrigerators = applianceList //itearate thru appliances
                     .Where(appliance => appliance is Refrigerator && ((Refrigerator)appliance).GetDoors() == doorsSelection)
                     .ToList(); // Lambda to compare applainces, Filters out anything that isnt a fridge with selected number of doors and adds them to a list as it goes.
@@ -109,7 +110,7 @@ namespace Team2_ModernAppliances
             }
             else if (userSelection == 2) // Vacuums
             {
-                string voltagePrompt = $"Enter battery voltage value. 18 V (low) or 24 V (high)";
+                string voltagePrompt = $"\nEnter battery voltage value. 18 V (low) or 24 V (high)\n";
                 List<string> voltages = new List<string>() { "18", "24" };
                 string voltageSelection = ProgramTools.GetUserSelection(voltagePrompt, voltages);
                 List<Appliance> vacuums = applianceList
@@ -120,7 +121,7 @@ namespace Team2_ModernAppliances
             }
             else if (userSelection == 3) //Microwaves
             {
-                string roomPrompt = $"Room where the microwave will be installed: K (kitchen) or W (work site):";
+                string roomPrompt = $"\nRoom where the microwave will be installed: K (kitchen) or W (work site):\n";
                 List<string> roomTypes = new List<string>() { "K", "W" };
                 string roomSelection = ProgramTools.GetUserSelection(roomPrompt, roomTypes);
                 List<Appliance> microwaves = applianceList
@@ -131,7 +132,7 @@ namespace Team2_ModernAppliances
             }
             else // 4 - Dishwashers
             {
-                string ratingPrompt = $"Enter the sound rating of the dishwasher: \nQt (Quietest), Qr (Quieter), Qu(Quiet) or M (Moderate):";
+                string ratingPrompt = $"\nEnter the sound rating of the dishwasher: \nQt (Quietest), Qr (Quieter), Qu(Quiet) or M (Moderate):\n";
                 List<string> acceptableInput = new List<string>() { "QT", "QR", "QU", "M" };
                 string ratingSelection = ProgramTools.GetUserSelection(ratingPrompt, acceptableInput);
                 List<Appliance> dishwashers = applianceList
@@ -144,7 +145,7 @@ namespace Team2_ModernAppliances
         }
         public override void RandomSearch()
         {
-            string randoPrompt = $"Please enter a number between 1 and {applianceList.Count}";
+            string randoPrompt = $"\nPlease enter a number between 1 and {applianceList.Count}\n";
             int randoNum = ProgramTools.GetUserSelection(randoPrompt, 1, applianceList.Count);
             List<Appliance> randomList = new List<Appliance>();
             // generate a number of random integers (between 1 and inputList.Count) equal to userEntry
