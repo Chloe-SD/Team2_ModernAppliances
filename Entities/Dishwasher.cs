@@ -22,6 +22,10 @@ namespace Team2_ModernAppliances.Entities
             this.SoundRatingDisplay = GetSoundRatingDisplay(soundRating); // get readable rating through method
 
         }
+        public string GetRating()
+        {
+            return this.SoundRating;
+        }
         
         public string GetSoundRatingDisplay(string soundRating)
         {
@@ -55,8 +59,9 @@ namespace Team2_ModernAppliances.Entities
         public override string ToString()
         {
             return $"{base.ToString()}" +
-                   $"Sound Rating: {SoundRatingDisplay}\n" +
-                   $"Feature: {Feature}";
+                $"Feature: {Feature}\n"+
+                $"Sound Rating: {SoundRatingDisplay}\n";
+                   
         }
 
         // Method to format dishwasher details for file output

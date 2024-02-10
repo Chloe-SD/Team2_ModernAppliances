@@ -10,11 +10,26 @@ namespace Team2_ModernAppliances.Entities
     {
         private int BatteryVoltage { get; set; }
         private string Grade { get; set; }
+        private string voltageDisplay { get; set; }
 
         public Vacuum(string itemNumber, string brand, int quantity, string wattage, string colour, double price, string grade, int batteryVoltage) : base(itemNumber, brand, quantity, wattage, colour, price)
         {
             this.BatteryVoltage = batteryVoltage;
             this.Grade = grade;
+            this.voltageDisplay = GetVoltageDisplay(batteryVoltage);
+        }
+        public string GetVoltage()
+        {
+            return this.BatteryVoltage.ToString();
+        }
+
+        private string GetVoltageDisplay(int voltage)
+        {
+            if (voltage == 18)
+            {
+                return "Low";
+            }
+            return "high";
         }
 
         public override string FormatForFile()
@@ -26,7 +41,7 @@ namespace Team2_ModernAppliances.Entities
         {
             return $"{base.ToString()}" +
                 $"Grade: {this.Grade} \n"+
-                $"Battery Voltage: {this.BatteryVoltage} V";
+                $"Battery Voltage: {this.voltageDisplay}\n";
         }
     }
 }

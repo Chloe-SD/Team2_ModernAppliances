@@ -18,6 +18,10 @@ namespace Team2_ModernAppliances.Entities
             this.Height = height;
             this.Width = width;
         }
+        public int GetDoors()
+        {
+            return this.Doors;
+        }
 
         public override string FormatForFile()
         {
@@ -29,7 +33,7 @@ namespace Team2_ModernAppliances.Entities
             return $"{base.ToString()}" +
                 $"Doors: {this.Doors}\n" +
                 $"Height: {this.Height}\n" +
-                $"Width: {this.Width}";
+                $"Width: {this.Width}\n";
         }
     }
 }
