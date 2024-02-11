@@ -60,7 +60,7 @@ namespace Team2_ModernAppliances.Entities
         {
             return $"{base.ToString()}" +
                 $"Feature: {Feature}\n"+
-                $"Sound Rating: {SoundRatingDisplay}\n";
+                $"Sound Rating: {SoundRatingDisplay}";
                    
         }
 

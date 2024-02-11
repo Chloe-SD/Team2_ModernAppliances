@@ -25,7 +25,7 @@ namespace Team2_ModernAppliances
         
 
         //IMPORTANT!!!! Replace this filepath with your absolute pate before running this program. 
-        public static string filePath = @"C:\Users\School\source\repos\Team2_ModernAppliances\appliances.txt";
+        public static string filePath = @"C:\Users\Denve\OneDrive\Desktop\OOP II\Project\appliances.txt";
 
         static void Main(string[] args)
         {           

@@ -33,7 +33,7 @@ namespace Team2_ModernAppliances.Entities
             return $"{base.ToString()}" +
                 $"Doors: {this.Doors}\n" +
                 $"Height: {this.Height}\n" +
-                $"Width: {this.Width}\n";
+                $"Width: {this.Width}";
         }
     }
 }

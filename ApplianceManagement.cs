@@ -39,7 +39,7 @@ namespace Team2_ModernAppliances
         {
             foreach (Appliance appliance in applianceList)
             {
-                Console.WriteLine(appliance);
+                Console.WriteLine($"\n{appliance}");
             }
         }
         private Appliance CreateAppliance(string[] parts)
@@ -95,14 +95,14 @@ namespace Team2_ModernAppliances
         public int DisplayMainMenu()
         {
             // String for the display of the menu
-            string menu = "Welcome to Modern Appliances!\n" +
+            string menu = "\nWelcome to Modern Appliances!\n" +
                               "How may we assist you?\n" +
                               "1 - Check out appliance\n" +
                               "2 - Find appliances by brand\n" +
                               "3 - Display appliances by type\n" +
                               "4 - Produce random appliance list\n" +
                               "5 - Save & exit\n" +
-                              "Enter option:\n";
+                              "\nEnter option:\n";
 
             //storing the integer and returning the user selction
             int userSelection = ProgramTools.GetUserSelection(menu, 1, 5);
@@ -110,7 +110,7 @@ namespace Team2_ModernAppliances
         }
         protected int DisplayByTypeMenu()
         {
-            string ByTypeMenu = $"Appliance Types\n1 – Refrigerators\n2 – Vacuums\n3 – Microwaves\n4 – Dishwashers\nEnter type of appliance:\n";
+            string ByTypeMenu = $"\nAppliance Types\n1 – Refrigerators\n2 – Vacuums\n3 – Microwaves\n4 – Dishwashers\nEnter type of appliance:\n";
             return ProgramTools.GetUserSelection(ByTypeMenu, 1, 4);
         }
         public abstract void Checkout();
